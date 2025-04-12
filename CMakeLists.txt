@@ -7,10 +7,12 @@ find_package(Curses REQUIRED)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(McServerShell main.cpp
-    processhandler.h processhandler.cpp
-    ansi_to_ncurses.h
-    ansi_to_ncurses.cpp)
+include_directories(src)
+
+add_executable(McServerShell
+    src/main.cpp
+    src/processhandler.h src/processhandler.cpp
+    src/ansi_to_ncurses.h src/ansi_to_ncurses.cpp)
 
 add_custom_target(Documentation SOURCES
     LICENSE
